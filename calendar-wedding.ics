@@ -1,0 +1,16 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Chris & Andralyn//Wedding Invitation//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:wedding-20261019@chrisandandralyn
+DTSTAMP:20260827T000000Z
+DTSTART;TZID=Asia/Kolkata:20261019T093000
+DTEND;TZID=Asia/Kolkata:20261019T110000
+SUMMARY:Chris & Andralyn — Wedding
+LOCATION:CSI All Saints Church, Trichy
+DESCRIPTION:Wedding ceremony of Chris David Douglas & Dr. Andralyn Sancha Joseph.
+STATUS:CONFIRMED
+END:VEVENT
+END:VCALENDAR

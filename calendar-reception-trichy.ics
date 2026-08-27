@@ -1,0 +1,16 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Chris & Andralyn//Wedding Invitation//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:reception-trichy-20261019@chrisandandralyn
+DTSTAMP:20260827T000000Z
+DTSTART;TZID=Asia/Kolkata:20261019T110000
+DTEND;TZID=Asia/Kolkata:20261019T133000
+SUMMARY:Chris & Andralyn — Trichy Reception
+LOCATION:Crystal Convention Center, Trichy
+DESCRIPTION:Trichy wedding reception of Chris David Douglas & Dr. Andralyn Sancha Joseph.
+STATUS:CONFIRMED
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,16 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Chris & Andralyn//Wedding Invitation//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:reception-mumbai-20261025@chrisandandralyn
+DTSTAMP:20260827T000000Z
+DTSTART;TZID=Asia/Kolkata:20261025T190000
+DTEND;TZID=Asia/Kolkata:20261025T213000
+SUMMARY:Chris & Andralyn — Mumbai Reception
+LOCATION:Ivy Restaurant, Near Westside, Chembur, Mumbai - 89
+DESCRIPTION:Mumbai wedding reception of Chris David Douglas & Dr. Andralyn Sancha Joseph.
+STATUS:CONFIRMED
+END:VEVENT
+END:VCALENDAR

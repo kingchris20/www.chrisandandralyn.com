@@ -1,0 +1,16 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Chris & Andralyn//Wedding Invitation//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:engagement-20261018@chrisandandralyn
+DTSTAMP:20260827T000000Z
+DTSTART;TZID=Asia/Kolkata:20261018T183000
+DTEND;TZID=Asia/Kolkata:20261018T203000
+SUMMARY:Chris & Andralyn — Engagement
+LOCATION:Crystal Convention Center, Trichy
+DESCRIPTION:Engagement celebration of Chris David Douglas & Dr. Andralyn Sancha Joseph.
+STATUS:CONFIRMED
+END:VEVENT
+END:VCALENDAR
