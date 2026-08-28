@@ -46,7 +46,7 @@ footer{text-align:center;padding:25px;font-size:10px;letter-spacing:.12em;text-t
 </div></section>
 <section class="closing"><div class="flower tl">❀</div><div class="flower br">❀</div><div class="kicker">We can't wait to celebrate with you</div><h2 class="serif">See you there!</h2><p>With love, Chris & Andralyn</p></section>
 <button class="music" id="musicBtn" title="Play music" aria-label="Play music">♪</button><audio id="music" loop preload="none">
-  <source src="music.mp3" type="audio/mpeg"></audio></audio><footer>Chris & Andralyn · 2026</footer>
+  <source src="music.mp3" type="audio/mpeg"></audio><footer>Chris & Andralyn · 2026</footer>
 <script>
 const btn=document.getElementById('musicBtn'),audio=document.getElementById('music');
 btn.addEventListener('click',async()=>{try{if(audio.paused){await audio.play();btn.textContent='❚❚';}else{audio.pause();btn.textContent='♪';}}catch(e){alert('Add your chosen MP3 as “music.mp3” in this folder, then tap the music button.');}});
