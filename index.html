@@ -4,9 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#f7f1eb">
+
 <title>Chris & Andralyn — Wedding Invitation</title>
 
 <style>
+
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap');
 
 :root{
@@ -15,6 +17,7 @@
   --sage:#667568;
   --rose:#c98f86;
   --gold:#b99a68;
+  --blush:#efdeda;
 }
 
 *{
@@ -42,6 +45,150 @@ section{
   font-family:"Cormorant Garamond",Georgia,serif;
 }
 
+/* =========================================
+   OPENING CURTAIN
+========================================= */
+
+.invitation-opening{
+  position:fixed;
+  inset:0;
+  z-index:9999;
+  overflow:hidden;
+}
+
+.curtain{
+  position:absolute;
+  top:0;
+  width:50%;
+  height:100%;
+  background:
+    radial-gradient(circle at 20% 20%,rgba(255,255,255,.45) 0 2px,transparent 3px),
+    radial-gradient(circle at 70% 60%,rgba(255,255,255,.35) 0 3px,transparent 4px),
+    linear-gradient(135deg,#e9d3cf,#f7ece7);
+  transition:transform 2.2s cubic-bezier(.77,0,.18,1);
+  overflow:hidden;
+}
+
+.curtain-left{
+  left:0;
+  border-right:1px solid rgba(255,255,255,.6);
+}
+
+.curtain-right{
+  right:0;
+  border-left:1px solid rgba(255,255,255,.6);
+}
+
+.curtain::before,
+.curtain::after{
+  content:"❀";
+  position:absolute;
+  color:rgba(201,143,134,.45);
+  font-size:90px;
+}
+
+.curtain::before{
+  top:8%;
+  left:10%;
+  transform:rotate(-25deg);
+}
+
+.curtain::after{
+  bottom:8%;
+  right:10%;
+  transform:rotate(30deg);
+}
+
+.curtain-right::before{
+  top:18%;
+  left:auto;
+  right:10%;
+}
+
+.curtain-right::after{
+  bottom:18%;
+  right:auto;
+  left:10%;
+}
+
+.opening-content{
+  position:absolute;
+  z-index:10;
+  inset:0;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  color:#4a403d;
+  padding:25px;
+  transition:opacity .5s ease;
+}
+
+.opening-flower{
+  font-size:48px;
+  color:var(--rose);
+  margin-bottom:12px;
+}
+
+.opening-small{
+  font-size:11px;
+  letter-spacing:.28em;
+  text-transform:uppercase;
+  margin-bottom:18px;
+}
+
+.opening-content h1{
+  font-size:clamp(58px,12vw,110px);
+  font-weight:500;
+  line-height:.8;
+  margin:0 0 25px;
+}
+
+.opening-date{
+  font-size:12px;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  margin-bottom:30px;
+}
+
+.open-btn{
+  border:1px solid rgba(61,56,52,.5);
+  background:rgba(255,255,255,.45);
+  padding:15px 30px;
+  font-family:Montserrat,Arial,sans-serif;
+  font-size:11px;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:#3d3834;
+  cursor:pointer;
+  backdrop-filter:blur(8px);
+  transition:.3s;
+}
+
+.open-btn:hover{
+  background:#fff;
+  transform:translateY(-2px);
+}
+
+.invitation-opening.open .curtain-left{
+  transform:translateX(-100%);
+}
+
+.invitation-opening.open .curtain-right{
+  transform:translateX(100%);
+}
+
+.invitation-opening.open .opening-content{
+  opacity:0;
+  pointer-events:none;
+}
+
+
+/* =========================================
+   MAIN WEBSITE
+========================================= */
+
 .flower{
   position:absolute;
   opacity:.65;
@@ -63,6 +210,9 @@ section{
   transform:rotate(155deg);
 }
 
+
+/* HERO */
+
 .hero{
   min-height:100svh;
   display:grid;
@@ -77,11 +227,12 @@ section{
   content:"";
   position:absolute;
   inset:0;
-  background:linear-gradient(
-    to bottom,
-    rgba(30,25,20,.15),
-    rgba(30,25,20,.55)
-  );
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(30,25,20,.15),
+      rgba(30,25,20,.55)
+    );
 }
 
 .hero-card{
@@ -132,6 +283,9 @@ section{
   backdrop-filter:blur(8px);
 }
 
+
+/* INTRO */
+
 .intro{
   padding:90px 22px;
   text-align:center;
@@ -162,6 +316,9 @@ section{
   letter-spacing:.18em;
   text-transform:uppercase;
 }
+
+
+/* EVENTS */
 
 .events{
   padding:80px 18px;
@@ -236,6 +393,9 @@ section{
   background:#fffaf4;
 }
 
+
+/* GALLERY */
+
 .gallery{
   padding:85px 14px;
 }
@@ -281,10 +441,17 @@ section{
   height:520px;
 }
 
-.p3,.p4,.p5,.p6,.p7{
+.p3,
+.p4,
+.p5,
+.p6,
+.p7{
   grid-column:span 4;
   height:430px;
 }
+
+
+/* CLOSING */
 
 .closing{
   padding:100px 22px;
@@ -303,16 +470,18 @@ section{
   letter-spacing:.08em;
 }
 
+
 /* MUSIC BUTTON */
+
 .music{
   position:fixed;
   right:18px;
   bottom:18px;
-  z-index:5;
+  z-index:100;
   border:0;
   border-radius:50%;
-  width:48px;
-  height:48px;
+  width:52px;
+  height:52px;
   background:white;
   box-shadow:0 4px 22px #0002;
   font-size:19px;
@@ -328,10 +497,15 @@ footer{
   opacity:.6;
 }
 
+
+/* MOBILE */
+
 @media(max-width:900px){
+
   .event-grid{
     grid-template-columns:repeat(2,1fr);
   }
+
 }
 
 @media(max-width:760px){
@@ -344,7 +518,13 @@ footer{
     grid-template-columns:1fr;
   }
 
-  .p1,.p2,.p3,.p4,.p5,.p6,.p7{
+  .p1,
+  .p2,
+  .p3,
+  .p4,
+  .p5,
+  .p6,
+  .p7{
     grid-column:span 12;
     height:440px;
   }
@@ -357,20 +537,67 @@ footer{
     font-size:76px;
   }
 
-  .intro,.gallery,.events{
+  .intro,
+  .gallery,
+  .events{
     padding-top:65px;
     padding-bottom:65px;
   }
+
 }
 
 </style>
 </head>
 
+
 <body>
 
+
+<!-- =========================================
+     OPENING CURTAINS
+========================================= -->
+
+<div class="invitation-opening" id="invitationOpening">
+
+  <div class="curtain curtain-left"></div>
+  <div class="curtain curtain-right"></div>
+
+  <div class="opening-content">
+
+    <div class="opening-flower">❀</div>
+
+    <div class="opening-small">
+      A celebration of love & faith
+    </div>
+
+    <h1 class="serif">
+      Chris <span class="amp">&</span> Andralyn
+    </h1>
+
+    <div class="opening-date">
+      18 · 19 October 2026
+    </div>
+
+    <button class="open-btn" id="openInvitation">
+      Open Our Invitation
+    </button>
+
+  </div>
+
+</div>
+
+
+<!-- =========================================
+     HERO
+========================================= -->
+
 <section class="hero">
+
   <div class="hero-card">
-    <div class="kicker">A celebration of love & faith</div>
+
+    <div class="kicker">
+      A celebration of love & faith
+    </div>
 
     <h1 class="serif">
       Chris <span class="amp">&</span> Andralyn
@@ -383,18 +610,28 @@ footer{
     <a class="btn" href="#events">
       Our Celebrations ↓
     </a>
+
   </div>
+
 </section>
 
+
+<!-- =========================================
+     INTRODUCTION
+========================================= -->
 
 <section class="intro">
 
   <div class="flower tl">❀</div>
   <div class="flower br">❀</div>
 
-  <div class="kicker">With grateful hearts</div>
+  <div class="kicker">
+    With grateful hearts
+  </div>
 
-  <h2 class="serif">Together in Christ</h2>
+  <h2 class="serif">
+    Together in Christ
+  </h2>
 
   <p>
     With the love, prayers and blessings of our families,
@@ -414,17 +651,27 @@ footer{
 </section>
 
 
+<!-- =========================================
+     EVENTS
+========================================= -->
+
 <section class="events" id="events">
 
   <div class="kicker" style="text-align:center">
     Please join us
   </div>
 
-  <h2 class="serif">Our Celebrations</h2>
+  <h2 class="serif">
+    Our Celebrations
+  </h2>
 
   <div class="event-grid">
 
+
+    <!-- ENGAGEMENT -->
+
     <article class="event">
+
       <div class="icon">♡</div>
 
       <h3>Engagement</h3>
@@ -453,6 +700,8 @@ footer{
 
     </article>
 
+
+    <!-- WEDDING -->
 
     <article class="event">
 
@@ -485,6 +734,8 @@ footer{
     </article>
 
 
+    <!-- TRICHY RECEPTION -->
+
     <article class="event">
 
       <div class="icon">✿</div>
@@ -515,6 +766,8 @@ footer{
 
     </article>
 
+
+    <!-- MUMBAI RECEPTION -->
 
     <article class="event">
 
@@ -548,10 +801,15 @@ footer{
 
     </article>
 
+
   </div>
 
 </section>
 
+
+<!-- =========================================
+     GALLERY
+========================================= -->
 
 <section class="gallery">
 
@@ -559,7 +817,9 @@ footer{
     A little glimpse of us
   </div>
 
-  <h2 class="serif">Our Moments</h2>
+  <h2 class="serif">
+    Our Moments
+  </h2>
 
   <div class="gallery-grid">
 
@@ -603,6 +863,10 @@ footer{
 </section>
 
 
+<!-- =========================================
+     CLOSING
+========================================= -->
+
 <section class="closing">
 
   <div class="flower tl">❀</div>
@@ -612,7 +876,9 @@ footer{
     We can't wait to celebrate with you
   </div>
 
-  <h2 class="serif">See you there!</h2>
+  <h2 class="serif">
+    See you there!
+  </h2>
 
   <p>
     With love, Chris & Andralyn
@@ -621,18 +887,18 @@ footer{
 </section>
 
 
-<!-- MUSIC BUTTON -->
-<button
-  class="music"
-  id="musicBtn"
-  title="Play music"
-  aria-label="Play music">
+<!-- =========================================
+     MUSIC
+========================================= -->
+
+<button class="music"
+        id="musicBtn"
+        title="Play music"
+        aria-label="Play music">
   ♪
 </button>
 
-
-<!-- MUSIC FILE -->
-<audio id="music" loop preload="auto">
+<audio id="music" loop preload="none">
   <source src="music.mp3" type="audio/mpeg">
 </audio>
 
@@ -642,35 +908,61 @@ footer{
 </footer>
 
 
+<!-- =========================================
+     JAVASCRIPT
+========================================= -->
+
 <script>
 
-const btn = document.getElementById('musicBtn');
-const audio = document.getElementById('music');
+/* OPEN CURTAINS */
+
+const opening =
+  document.getElementById('invitationOpening');
+
+const openButton =
+  document.getElementById('openInvitation');
+
+openButton.addEventListener('click', () => {
+
+  opening.classList.add('open');
+
+  setTimeout(() => {
+    opening.style.display = 'none';
+  }, 2300);
+
+});
+
+
+/* MUSIC BUTTON */
+
+const btn =
+  document.getElementById('musicBtn');
+
+const audio =
+  document.getElementById('music');
 
 btn.addEventListener('click', async () => {
 
   try {
 
-    if (audio.paused) {
+    if(audio.paused){
 
       await audio.play();
 
       btn.textContent = '❚❚';
-      btn.title = 'Pause music';
 
-    } else {
+    }else{
 
       audio.pause();
 
       btn.textContent = '♪';
-      btn.title = 'Play music';
 
     }
 
-  } catch (error) {
+  }catch(e){
 
     alert(
-      'Unable to play the music. Please make sure the file is named exactly music.mp3 and is uploaded in the main folder.'
+      'Please make sure music.mp3 is uploaded to the same folder as index.html.'
     );
 
   }
