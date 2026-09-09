@@ -45,6 +45,7 @@ section{
   font-family:"Cormorant Garamond",Georgia,serif;
 }
 
+
 /* =========================================
    OPENING CURTAIN
 ========================================= */
@@ -471,22 +472,7 @@ section{
 }
 
 
-/* MUSIC BUTTON */
-
-.music{
-  position:fixed;
-  right:18px;
-  bottom:18px;
-  z-index:100;
-  border:0;
-  border-radius:50%;
-  width:52px;
-  height:52px;
-  background:white;
-  box-shadow:0 4px 22px #0002;
-  font-size:19px;
-  cursor:pointer;
-}
+/* FOOTER */
 
 footer{
   text-align:center;
@@ -549,13 +535,10 @@ footer{
 </style>
 </head>
 
-
 <body>
 
 
-<!-- =========================================
-     OPENING CURTAINS
-========================================= -->
+<!-- OPENING SCREEN -->
 
 <div class="invitation-opening" id="invitationOpening">
 
@@ -587,9 +570,7 @@ footer{
 </div>
 
 
-<!-- =========================================
-     HERO
-========================================= -->
+<!-- HERO -->
 
 <section class="hero">
 
@@ -616,9 +597,7 @@ footer{
 </section>
 
 
-<!-- =========================================
-     INTRODUCTION
-========================================= -->
+<!-- INTRODUCTION -->
 
 <section class="intro">
 
@@ -651,9 +630,7 @@ footer{
 </section>
 
 
-<!-- =========================================
-     EVENTS
-========================================= -->
+<!-- EVENTS -->
 
 <section class="events" id="events">
 
@@ -801,15 +778,12 @@ footer{
 
     </article>
 
-
   </div>
 
 </section>
 
 
-<!-- =========================================
-     GALLERY
-========================================= -->
+<!-- GALLERY -->
 
 <section class="gallery">
 
@@ -824,38 +798,31 @@ footer{
   <div class="gallery-grid">
 
     <div class="photo p1">
-      <img src="images/couple-stairs.jpeg"
-           alt="Chris and Andralyn">
+      <img src="images/couple-stairs.jpeg" alt="Chris and Andralyn">
     </div>
 
     <div class="photo p2">
-      <img src="images/couple-flowers.jpeg"
-           alt="Chris and Andralyn">
+      <img src="images/couple-flowers.jpeg" alt="Chris and Andralyn">
     </div>
 
     <div class="photo p3">
-      <img src="images/couple-outdoors.jpeg"
-           alt="Chris and Andralyn">
+      <img src="images/couple-outdoors.jpeg" alt="Chris and Andralyn">
     </div>
 
     <div class="photo p4">
-      <img src="images/couple-bracelet.jpeg"
-           alt="Chris and Andralyn">
+      <img src="images/couple-bracelet.jpeg" alt="Chris and Andralyn">
     </div>
 
     <div class="photo p5">
-      <img src="images/WhatsApp Image 2026-08-27 at 17.45.47.jpeg"
-           alt="Engagement celebration">
+      <img src="images/WhatsApp Image 2026-08-27 at 17.45.47.jpeg" alt="Engagement celebration">
     </div>
 
     <div class="photo p6">
-      <img src="images/WhatsApp Image 2026-08-27 at 18.04.28.jpeg"
-           alt="Chris and Andralyn">
+      <img src="images/WhatsApp Image 2026-08-27 at 18.04.28.jpeg" alt="Chris and Andralyn">
     </div>
 
     <div class="photo p7">
-      <img src="images/WhatsApp Image 2026-08-27 at 18.04.29.jpeg"
-           alt="Chris and Andralyn">
+      <img src="images/WhatsApp Image 2026-08-27 at 18.04.29.jpeg" alt="Chris and Andralyn">
     </div>
 
   </div>
@@ -863,9 +830,7 @@ footer{
 </section>
 
 
-<!-- =========================================
-     CLOSING
-========================================= -->
+<!-- CLOSING -->
 
 <section class="closing">
 
@@ -887,18 +852,9 @@ footer{
 </section>
 
 
-<!-- =========================================
-     MUSIC
-========================================= -->
+<!-- MUSIC - STARTS WHEN INVITATION IS OPENED -->
 
-<button class="music"
-        id="musicBtn"
-        title="Play music"
-        aria-label="Play music">
-  ♪
-</button>
-
-<audio id="music" loop preload="none">
+<audio id="music" loop preload="auto">
   <source src="music.mp3" type="audio/mpeg">
 </audio>
 
@@ -908,64 +864,36 @@ footer{
 </footer>
 
 
-<!-- =========================================
-     JAVASCRIPT
-========================================= -->
+<!-- JAVASCRIPT -->
 
 <script>
 
-/* OPEN CURTAINS */
+const opening = document.getElementById('invitationOpening');
+const openButton = document.getElementById('openInvitation');
+const audio = document.getElementById('music');
 
-const opening =
-  document.getElementById('invitationOpening');
 
-const openButton =
-  document.getElementById('openInvitation');
+openButton.addEventListener('click', async () => {
 
-openButton.addEventListener('click', () => {
+  /* Start the music */
+
+  try {
+    await audio.play();
+  } catch (error) {
+    console.log('Music could not start automatically.');
+  }
+
+
+  /* Open the curtains */
 
   opening.classList.add('open');
+
+
+  /* Remove opening screen after curtain animation */
 
   setTimeout(() => {
     opening.style.display = 'none';
   }, 2300);
-
-});
-
-
-/* MUSIC BUTTON */
-
-const btn =
-  document.getElementById('musicBtn');
-
-const audio =
-  document.getElementById('music');
-
-btn.addEventListener('click', async () => {
-
-  try {
-
-    if(audio.paused){
-
-      await audio.play();
-
-      btn.textContent = '❚❚';
-
-    }else{
-
-      audio.pause();
-
-      btn.textContent = '♪';
-
-    }
-
-  }catch(e){
-
-    alert(
-      'Please make sure music.mp3 is uploaded to the same folder as index.html.'
-    );
-
-  }
 
 });
 
